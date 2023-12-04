@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Lab3</title>
+    <link href="#{request.contextPath}/css/inssexxxx.css" rel="stylesheet" type="text/css"/>
+</h:head>
+
+<h:body>
+    <table class="header">
+            <tr>
+            <td>
+                <a href="https://se.ifmo.ru/" target="_blank">
+                    <img src="#{request.contextPath}/images/itmo-logo-dark.svg" alt="log"/>
+                </a>
+            </td>
+            <td class="name"> Лабораторная работа 3 по Веб-программированию</td>
+            <td class="info">
+                Вариант: <a href="#{request.contextPath}/images/option.png" id="option">2327</a><br/>
+                Выполнил: Попов Дмитрий Юрьевич<br/>
+                Группа: P3213
+            </td>
+        </tr>
+    </table>
+    <div class="clock">
+        <h:form styleClass="form-clock">
+            <p:clock displayMode="analog" mode="server" autoSync="true" syncInterval="50000"/>
+        </h:form>
+    </div>
+    <div id="buttonfield">
+        <p:button id="button" outcome="to_main" value="Let's get started"/>
+    </div>
+</h:body>
+
+</html>

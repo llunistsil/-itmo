@@ -1,0 +1,94 @@
+body {
+    color: white;
+    background-color: #24292f;
+    font-family: Segoe UI, serif;
+}
+
+.header {
+    width: 100%;
+    font-family: inherit;
+    padding: 10px;
+}
+
+.name{
+    width: 60%;
+    color: black;
+    border-radius: 10px;
+    text-indent: 10%;
+    text-align: center;
+    font-size: 25px;
+    background-color: white;
+    margin: 10px;
+}
+.info{
+    text-align: right;
+}
+.clock{
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    right: 50px;
+    bottom: 50px;
+}
+circle:hover{
+    fill: #24292f;
+}
+.main{
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+form input:disabled {
+    filter: brightness(75%);
+    cursor: default !important;
+}
+
+.coords-btn {
+    cursor: pointer;
+    height: 34px;
+}
+
+.main > div{
+    margin-left: 30px;
+    width: 30%;
+    background-color: white;
+    border: 6px solid black;
+    border-radius: 6px;
+    color: black;
+    text-align: center;
+}
+.main > div:first-child{
+    margin-left: 20px;
+}
+.selection{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.selection > div{
+    text-align: left;
+    padding: 20px;
+}
+#submit-container{
+    text-align: center;
+}
+.results-container{
+    border: 6px solid black;
+    border-radius: 6px;
+    margin: 40px;
+}
+.results-container table thead th {
+    background-color: white;
+    color: #24292f;
+    font-size: 17pt;
+    padding: 10px;
+    text-align: center;
+}
+
+.results-container table tbody td {
+    background-color: #24292f;
+    color: white;
+    text-align: center;
+    font-size: 15pt;
+}

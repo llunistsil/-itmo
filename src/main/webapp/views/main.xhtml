@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+<h:head>
+   <link href="#{request.contextPath}/css/main.css" rel="stylesheet" type="text/css"/>
+   <script src="https://unpkg.com/function-plot/dist/function-plot.js" type="text/javascript"></script>
+   <script src="#{request.contextPath}/js/plotxxxx.js"></script>
+   <script src="#{request.contextPath}/js/mainx.js"></script>
+   <title>Lab 3</title>
+</h:head>
+<h:body>
+   <f:view>
+      <table class="header">
+         <tr>
+            <td>
+               <a href="https://se.ifmo.ru/" target="_blank">
+                  <img src="#{request.contextPath}/images/itmo-logo-dark.svg" alt="log"/>
+               </a>
+            </td>
+            <td class="name"> Лабораторная работа 3 по Веб-программированию</td>
+            <td class="info">
+               Вариант: <a href="#{request.contextPath}/images/option.png" id="option">2327</a><br/>
+               Выполнил: Попов Дмитрий Юрьевич<br/>
+               Группа: P3213
+            </td>
+         </tr>
+      </table>
+      <div class="clock">
+         <h:form>
+            <p:link outcome="to_index">
+               <p:clock displayMode="analog" mode="server" autoSync="true" syncInterval="5000"/>
+            </p:link>
+         </h:form>
+      </div>
+      <div class="main">
+         <div class="coords-info" id="plot"/>
+         <div>
+            <h2>Введите коортидаты</h2>
+            <h:form id="coords-form" styleClass="selection" method="post" action="${pageContext.request.contextPath}/controller">
+               <div>
+                  <h:outputLabel value="X: " />
+                  <p:spinner id="x-coord-input" name="x" min="-4" max="4"  stepFactor="0.5" value="#{checkPointController.x}"/>
+               </div>
+               <div>
+                  <h:outputLabel value="Y: " />
+                  <p:inputText name="y" styleClass="inputtext" value="#{checkPointController.y}"
+                               id="y-coord-input"
+                               required="true" maxlength="7"
+                               requiredMessage="Value Y is required"
+                               validatorMessage="The value must be from -5 to 3">
+                     <f:converter converterId="jakarta.faces.Float"/>
+                     <f:validateDoubleRange minimum="-5" maximum="3"/>
+                  </p:inputText>
+               </div>
+               <div>
+                  <h:outputLabel value="R: " />
+                  <p:inputText name="r" id="r-coord-input" styleClass="inputtext" value="#{checkPointController.r}" placeholder="2.0"
+                               required="true" maxlength="7"
+                               requiredMessage="Value R is required"
+                               validatorMessage="The value must be from 2 to 5">
+                     <f:converter converterId="jakarta.faces.Float"/>
+                     <f:validateDoubleRange minimum="2" maximum="5"/>
+                  </p:inputText>
+               </div>
+               <div id="submit-container">
+                  <p:commandButton id="submit-btn" value="Отправить" styleClass="submit-btn">
+                     <f:ajax execute="@form"
+                             listener="#{checkPointController.checkPoint()}"
+                             render="@all"
+                             onevent="init"/>
+                  </p:commandButton>
+               </div>
+            </h:form>
+         </div>
+      </div>
+      <div class="results-container">
+         <p:dataTable styleClass="results" var="point" value="#{pointCheckStorageController.getCheckPointList()}">
+            <p:column>
+               <f:facet name="header">
+                  <h:outputText value="X"/>
+               </f:facet>
+               <h:outputText styleClass="table-x" value="#{point.x}"/>
+            </p:column>
+            <p:column>
+               <f:facet name="header">
+                  <h:outputText value="Y"/>
+               </f:facet>
+               <h:outputText styleClass="table-y" value="#{point.y}"/>
+            </p:column>
+            <p:column>
+               <f:facet name="header">
+                  <h:outputText value="R"/>
+               </f:facet>
+               <h:outputText styleClass="table-r" value="#{point.r}"/>
+            </p:column>
+            <p:column>
+               <f:facet name="header">
+                  <h:outputText value="Попала или нет"/>
+               </f:facet>
+               <h:outputText styleClass="table-hit" value="#{point.isHit}"/>
+            </p:column>
+            <p:column>
+               <f:facet name="header">
+                  <h:outputText value="Создано"/>
+               </f:facet>
+               <h:outputText styleClass="table-created-at" value="#{point.createdAt.getTime()}"/>
+            </p:column>
+         </p:dataTable>
+      </div>
+   </f:view>
+</h:body>
+</html>
