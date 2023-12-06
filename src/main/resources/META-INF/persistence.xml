@@ -8,9 +8,9 @@
         <class>web.lab3.server.model.PointCheck</class>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:" /><!-- TODO: написать хост / название баззы данных -->
-            <property name="jakarta.persistence.jdbc.user" value="" /><!-- TODO: написать имя пользователя -->
-            <property name="jakarta.persistence.jdbc.password" value="" /><!-- TODO: написать пароль -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/studs" /><!-- TODO: написать хост / название баззы данных -->
+            <property name="jakarta.persistence.jdbc.user" value="s368679" /><!-- TODO: написать имя пользователя -->
+            <property name="jakarta.persistence.jdbc.password" value="sqiQ0Cy0gozoepf0" /><!-- TODO: написать пароль -->
 
             <!-- Настройки EclipseLink -->
             <property name="eclipselink.ddl-generation" value="create-or-extend-tables" />

@@ -56,6 +56,7 @@
                                validatorMessage="The value must be from -5 to 3">
                      <f:converter converterId="jakarta.faces.Float"/>
                      <f:validateDoubleRange minimum="-5" maximum="3"/>
+                     <h:message for="y-coord-input"/>
                   </p:inputText>
                </div>
                <div>
@@ -66,7 +67,9 @@
                                validatorMessage="The value must be from 2 to 5">
                      <f:converter converterId="jakarta.faces.Float"/>
                      <f:validateDoubleRange minimum="2" maximum="5"/>
+                     <h:message for="r-coord-input"/>
                   </p:inputText>
+
                </div>
                <div id="submit-container">
                   <p:commandButton id="submit-btn" value="Отправить" styleClass="submit-btn">

@@ -25,9 +25,7 @@ const init = () => {
     }
 
     const plot = new Plot(document.getElementById('coords-form:r-coord-input').value,
-        points,
-        document.getElementById("plot").clientHeight,
-        document.getElementById("plot").clientWidth);
+        points);
     document.getElementById('coords-form:r-coord-input').addEventListener("input", (e) => {
         e.preventDefault();
         if(validateR(document.getElementById('coords-form:r-coord-input').value)) {

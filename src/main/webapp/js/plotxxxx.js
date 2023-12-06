@@ -26,12 +26,10 @@ class Plot {
 
     _xValues = [-4, -3.5, -3, -2.5, -2, -1.5, -1, 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4];
 
-    constructor(r, points ,height, width) {
+    constructor(r, points) {
         if(validateR(r)){
             this._r = r;
         }
-        this._height = height;
-        this._width = width;
         this._points = points;
         this._draw();
 
